@@ -21,36 +21,41 @@
         <!-- Use header, main, and footer elements to give semantic structure -->
         <header class="container-fluid">
             <!-- Navigation elements -->
-            <nav class>
-                <h1>Simon<sup>&reg;</sup></h1>
-                <menu>
+            <nav class="navbar-brand navbar-dark">
+                <a class ="nav-link active" href = "#">Simon<sup>&reg;</sup></a>
+                <menu class="navbar-nav">
                     <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
-                    <li><a href = "index.html">Home</a> </li>
-                    <li><a href = "play.html">Play</a> </li>
-                    <li><a href = "scores.html">Scores</a> </li>
-                    <li><a href = "about.html">About</a> </li>
+                    <li class="nav-item"><a class = "nav-link active" href = "index.html">Home</a> </li>
+                    <li class="nav-item"><a class = "nav-link" href = "play.html">Play</a> </li>
+                    <li class="nav-item"><a class = "nav-link" href = "scores.html">Scores</a> </li>
+                    <li class="nav-item"><a class = "nav-link" href = "about.html">About</a> </li>
                 </menu>
             </nav>
 
             <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
-            <hr /> <!-- puts the line thing in to separate -->
+            <!-- <hr /> don't need this anymore with CSS/Bootstrap --><!-- puts the line thing in to separate -->
         </header>
 
-        <main>
-            <h1>Welcome</h1>
-            <p>Login to Play</p>
-            <form method = "get" action="play.html">
-                <label for ="name">Name</label>
-                <input type ="text" id="name" placeholder="Your name here"/>
-                <button type ="submit">Login</button>
-            </form>
+        <main class="container-fluid bg-secondary text-center">
+            <div>
+                <h1>Welcome</h1>
+                <p>Login to Play</p>
+                <form method = "get" action="play.html">
+                    <label for ="name">Name</label>
+                    <input type ="text" id="name" placeholder="Your name here"/>
+                    <button type ="submit" class="btn-primary">Login</button>
+                </form>
+            </div>
         </main>
 
-        <footer>
-            <hr/>
-            <span class ="text-reset">Ben Kartchner</span>
-            <br />
-            <a href="https://github.com/theregular/simon">GitHub</a>
+        <footer class="bg-dark text-dark text-muted">
+            <div class="container-fluid">
+                <span class ="text-reset">Ben Kartchner</span>
+                <a
+                class="text-reset" 
+                href="https://github.com/theregular/simon">GitHub
+                </a>
+            </div>
         </footer>
     </body>
 </html>
