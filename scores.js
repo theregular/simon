@@ -15,7 +15,23 @@ function loadScores() {
             const scoreTdEl = document.createElement('td');
             const dateTdEl = document.createElement('td');
 
-            positionTdEl.textContent
+            positionTdEl.textContent = i + 1;
+            nameTdEl.textContent = score.name;
+            scoreTdEl.textContent = score.score;
+            dateTdEl.textContent = score.date;
+
+            const rowEl = document.createElement('tr');
+            rowEl.appendChild(positionTdEl);
+            rowEl.appendChild(nameTdEl);
+            rowEl.appendChild(scoreTdEl);
+            rowEl.appendChild(dateTdEl);
+
+            tableBodyEl.appendChild(rowEl);
         }
     }
+    else {
+        tableBodyEl.innerHTML = '<tr><td colSpan=4>Be the first to score</td></tr>';
+    }
 }
+
+loadScores();
