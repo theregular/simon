@@ -1,5 +1,5 @@
 function login() {
-    const nameEl = document.querySelector("#name");
-    localStorage.setItem("userName",nameEl.value);
-    window.location.href = "play.html"; //changes the html of the play.html code, but is connected to the login code
+    const nameEl = document.querySelector("#name"); //finds the id "name" in the document
+    localStorage.setItem("userName", nameEl.value); //stores the name entered into the local storage
+    window.location.href = "play.html"; //link to the play.html page
 }
