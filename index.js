@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const DB = require('./database.js'); //code for database
 
 // The service port. In production the application is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
@@ -15,13 +16,15 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // GetScores
-apiRouter.get('/scores', (_req, res) => { //Built in HTTP request and response
+apiRouter.get('/scores', async (_req, res) => { //Built in HTTP request and response
+  const scores = await DB.getHighScores(); //get scores from database
   res.send(scores);
 });
 
 // SubmitScore
-apiRouter.post('/score', (req, res) => {
-  scores = updateScores(req.body, scores);
+apiRouter.post('/score', async (req, res) => {
+  await DB.addScore(req.body); //adds score to database
+  const scores = await DB.getHighScores();
   res.send(scores);
 });
 
@@ -34,8 +37,12 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
+
+//PRE DB stuff, hard stored stuff on server in program
+
 // updateScores considers a new score for inclusion in the high scores.
 // The high scores are saved in memory and disappear whenever the service is restarted.
+/*
 let scores = [];
 function updateScores(newScore, scores) {
   let found = false;
@@ -57,3 +64,5 @@ function updateScores(newScore, scores) {
 
   return scores;
 }
+
+*/
