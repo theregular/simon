@@ -2,8 +2,8 @@ const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 
-const userName = process.env.SIMONMONGOUSER;
-const password = process.env.SIMONMONGOPASSWORD;
+const userName = simonDB; //process.env.SIMONMONGOUSER;
+const password = simongame123; //process.env.SIMONMONGOPASSWORD;
 //const hostname = process.env.MONGOHOSTNAME;
 
 if (!userName) {
