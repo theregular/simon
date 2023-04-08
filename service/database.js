@@ -4,25 +4,24 @@ const uuid = require('uuid');
 
 const userName = process.env.SIMONMONGOUSER;
 const password = process.env.SIMONMONGOPASSWORD;
-//const hostname = process.env.MONGOHOSTNAME;
+//const hostname = process.env.SIMONMONGOHOSTNAME;
 
 if (!userName) {
   throw Error('Database not configured. Set environment variables');
 }
 
 //const url = `mongodb+srv://${userName}:${password}@${hostname}`;
-
 const url = `mongodb+srv://${userName}:${password}@cluster0.bxy95fo.mongodb.net/`;
 
 const client = new MongoClient(url);
 const userCollection = client.db('simon').collection('user');
 const scoreCollection = client.db('simon').collection('score');
 
-function getUser(email) { //finds user by email from DB
+function getUser(email) {
   return userCollection.findOne({ email: email });
 }
 
-function getUserByToken(token) { //finds user by authToken from DB
+function getUserByToken(token) {
   return userCollection.findOne({ token: token });
 }
 
@@ -61,4 +60,3 @@ module.exports = {
   addScore,
   getHighScores,
 };
-
